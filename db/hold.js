@@ -1,9 +1,26 @@
-const util = require('util');
 const fs = require('fs');
+const util = require('util');
 
-
-const { v4: uuidv4 } = require("uuid");
-// uuidv4(); // ⇨ '1b9d6bcd-bbfd-4b2d-9b5d-ab8dfbbd4bed'
-
+// Promise version of fs.readFile
 const readFromFile = util.promisify(fs.readFile);
-const writeToFile = util.promisify(fs.writeFile);
+
+
+const writeToFile = (destination, content) =>
+  fs.writeFile(destination, JSON.stringify(content, null, 4), (err) =>
+    err ? console.error(err) : console.info(`\nData written to ${destination}`)
+  );
+  
+
+const readAndAppend = (content, file) => {
+  fs.readFile(file, 'utf8', (err, data) => {
+    if (err) {
+      console.error(err);
+    } else {
+      const parsedData = JSON.parse(data);
+      parsedData.push(content);
+      writeToFile(file, parsedData);
+    }
+  });
+};
+
+module.exports = { readFromFile, writeToFile, readAndAppend };

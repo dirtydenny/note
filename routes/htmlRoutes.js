@@ -1,5 +1,14 @@
-const router = require("express").Router();
+const htmlRoute = require("express").Router();
 const path = require("path");
 
-const { v4: uuidv4 } = require('uuid');
-uuidv4(); // ⇨ '1b9d6bcd-bbfd-4b2d-9b5d-ab8dfbbd4bed'
+htmlRoute.get("/notes", (req, res) => {
+  res.sendfile(path.join(__dirname, "../public/notes.html"));
+});
+
+htmlRoute.get("*", (req, res) => {
+  res.sendfile(path.join(__dirname, "../public/index.html"));
+});
+
+
+
+module.exports = htmlRoute;
