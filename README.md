@@ -30,7 +30,7 @@
 
   ## Usage
 
-  From the command line, cd to the directory holding the index.js file. Run 'npm i' from the command line. Run 'node server.js'.
+  From the command line, cd to the directory holding the server.js file. Run 'npm i' from the command line. Run 'node server.js'.
 
   ## Tests
 
@@ -38,6 +38,5 @@
 
   ## Questions
 
-  Thank you for using my application.  Please submit questions to dallen7@socal.rr.com.  Also, visit me at 
-    [dirtydenny](https://github.com/dirtydenny/) to see my other programs.
+  Thank you for using my application.  Please submit questions to dallen7@socal.rr.com.  Also, visit me on Github at    [dirtydenny](https://github.com/dirtydenny/) to see my other programs.
 
